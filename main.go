@@ -1,12 +1,13 @@
 package main
 
 import (
-	"Chip8/ch8"
-	"Chip8/ch8sdl"
 	"flag"
 	"fmt"
 	"log"
 	"strings"
+
+	"github.com/efeckgz/GoCh8/ch8"
+	"github.com/efeckgz/GoCh8/ch8sdl"
 )
 
 func main() {

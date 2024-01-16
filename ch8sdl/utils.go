@@ -1,7 +1,7 @@
 package ch8sdl
 
 import (
-	"Chip8/ch8"
+	"github.com/efeckgz/GoCh8/ch8"
 	// embed used for embedding the beep file into the binary.
 	_ "embed"
 	"fmt"

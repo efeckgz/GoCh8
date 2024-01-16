@@ -1,4 +1,4 @@
-module Chip8
+module github.com/efeckgz/GoCh8
 
 go 1.21.5
 
