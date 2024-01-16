@@ -6,8 +6,6 @@ import (
 	"math/rand"
 	"os"
 	"path/filepath"
-
-	"github.com/veandco/go-sdl2/mix"
 )
 
 const (
@@ -63,11 +61,11 @@ type CPU struct {
 	Keypad [16]bool
 
 	// beep is the sound played from the Chip8.
-	beep *mix.Chunk
+	beep Beep
 }
 
 // NewCPU creates a new Chip8 with default values.
-func NewCPU(spec Spec, beep *mix.Chunk) (ch8 CPU) {
+func NewCPU(spec Spec, beep Beep) (ch8 CPU) {
 	fontSet := [80]byte{
 		0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
 		0x20, 0x60, 0x20, 0x20, 0x70, // 1
@@ -141,13 +139,10 @@ func (ch8 *CPU) Tick() {
 	}
 
 	if ch8.SoundTimer > 0 {
-		_, err := ch8.beep.Play(-1, 0)
-		if err != nil {
-			log.Printf("Could not play the beep: %v", err)
-		}
+		ch8.beep.Play()
 		ch8.SoundTimer--
 	} else {
-		mix.HaltChannel(-1)
+		ch8.beep.Pause()
 	}
 
 	ch8.emulateCycle(instructionsPerFrame)
