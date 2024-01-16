@@ -52,7 +52,7 @@ func RunSDL(spec ch8.Spec, romPath string, color colorScheme) {
 	renderer, window, beep := setup(spec)
 	defer cleanup(window, renderer, beep)
 
-	sound := newSound(beep)
+	sound := newSound(beep) // convert the *mix.Chunk to a Beep interface
 	cpu := ch8.NewCPU(spec, sound)
 	err := cpu.LoadProgram(romPath)
 	if err != nil {
