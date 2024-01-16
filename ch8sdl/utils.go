@@ -52,7 +52,8 @@ func RunSDL(spec ch8.Spec, romPath string, color colorScheme) {
 	renderer, window, beep := setup(spec)
 	defer cleanup(window, renderer, beep)
 
-	cpu := ch8.NewCPU(spec, beep)
+	sound := newSound(beep)
+	cpu := ch8.NewCPU(spec, sound)
 	err := cpu.LoadProgram(romPath)
 	if err != nil {
 		log.Fatalf("Error loading program: %v\n", err)
