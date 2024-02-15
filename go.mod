@@ -1,6 +1,6 @@
 module github.com/efeckgz/GoCh8
 
-go 1.21.6
+go 1.22
 
 require (
 	github.com/efeckgz/GoCh8/ch8 v0.0.0-00010101000000-000000000000
