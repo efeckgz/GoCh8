@@ -32,7 +32,7 @@ var (
 var beepBytes []byte
 
 // RunSDL runs the emulator using SDL.
-func RunSDL(spec ch8.Spec, romPath string, color colorScheme, speed int) {
+func RunSDL(spec ch8.Spec, romPath string, color ColorScheme, speed int) {
 	if color == Yellow {
 		bgR = 154
 		bgG = 102

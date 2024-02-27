@@ -1,9 +1,10 @@
 package ch8sdl
 
-type colorScheme byte
+// ColorScheme represents the different color schemes that can be used in the emulator.
+type ColorScheme byte
 
 const (
-	_ colorScheme = iota
+	_ ColorScheme = iota
 	// Black and white color scheme
 	Black
 
@@ -14,7 +15,7 @@ const (
 	Green
 )
 
-var colorSchemes = map[string]colorScheme{
+var colorSchemes = map[string]ColorScheme{
 	"black":  Black,
 	"yellow": Yellow,
 	"green":  Green,
@@ -22,10 +23,10 @@ var colorSchemes = map[string]colorScheme{
 
 // ParseColorScheme takes the string passed by the user as a cli arguments
 // and returns the appropriate color. Default is Black.
-func ParseColorScheme(arg *string) colorScheme {
+func ParseColorScheme(arg *string) ColorScheme {
 	color, ok := colorSchemes[*arg]
 	if !ok {
-		return Black
+		return Green
 	}
 	return color
 }
