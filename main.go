@@ -12,7 +12,7 @@ import (
 
 func main() {
 	romPathArg := flag.String("rom", "", "Path to the chip 8 program")
-	colorArg := flag.String("color", "black", "The color scheme for Chip 8")
+	colorArg := flag.String("color", "green", "The color scheme for Chip 8")
 	specArg := flag.String("spec", "original", "The specification of Chip 8 to emulate.")
 	speedArg := flag.Int("speed", 1, "The speed of emulation")
 
