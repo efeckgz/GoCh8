@@ -8,7 +8,13 @@ For now, original & schip-1.1 (partially for now) are supported. Support for Xo 
 
 ## Usage
 
-Run with the command `./GoCh8 --rom=path/to/rom`. You can also pass in an optional `--color` argument to set the color scheme. Black & white, green and yellow colors are supported. Default is black & white. Upon starting, the keyboard mapping will be printed to the console.
+Run with the command `./GoCh8 --rom=path/to/rom`. Upon starting, the keyboard mapping will be printed to the console.
+
+### Optional CLI arguments
+
+1. --color: Specifies the color scheme. Black, yellow and green color schemes are available. Default is Green.
+2. --spec: Specifies the specification of Chip 8 to emulate. Original, Super and Xo are available. Default is Original.
+3. --speed: Specifies an integer speed multiplier for the emulation. Original is 1.
 
 ## Thanks to
 
