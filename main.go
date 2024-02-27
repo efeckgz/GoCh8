@@ -14,6 +14,7 @@ func main() {
 	romPathArg := flag.String("rom", "", "Path to the chip 8 program")
 	colorArg := flag.String("color", "black", "The color scheme for Chip 8")
 	specArg := flag.String("spec", "original", "The specification of Chip 8 to emulate.")
+	speedArg := flag.Int("speed", 1, "The speed of emulation")
 
 	colorArg = trimAndLower(colorArg)
 	specArg = trimAndLower(specArg)
@@ -23,7 +24,7 @@ func main() {
 	color := ch8sdl.ParseColorScheme(colorArg)
 	spec := ch8.ParseChip8Spec(specArg)
 
-	ch8sdl.RunSDL(spec, *romPathArg, color)
+	ch8sdl.RunSDL(spec, *romPathArg, color, *speedArg)
 }
 
 // trimAndLower is a function that removes whitespace from a string and converts it to lowercase.

@@ -133,7 +133,7 @@ func (ch8 *CPU) ClearProgram() {
 }
 
 // Tick emulates what the chip 8 does in 1/60 of a second.
-func (ch8 *CPU) Tick() {
+func (ch8 *CPU) Tick(speed int) {
 	if ch8.DelayTimer > 0 {
 		ch8.DelayTimer--
 	}
@@ -145,11 +145,12 @@ func (ch8 *CPU) Tick() {
 		ch8.beep.Pause()
 	}
 
-	ch8.emulateCycle(instructionsPerFrame)
+	ch8.emulateCycle(instructionsPerFrame, speed)
 }
 
-func (ch8 *CPU) emulateCycle(cycles int) {
-	for i := 0; i < cycles; i++ {
+func (ch8 *CPU) emulateCycle(cycles, speed int) {
+	runFor := cycles * speed
+	for i := 0; i < runFor; i++ {
 		opcode := ch8.readOpcode()
 		ch8.programCounter += 2
 

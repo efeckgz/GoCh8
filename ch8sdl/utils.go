@@ -32,7 +32,7 @@ var (
 var beepBytes []byte
 
 // RunSDL runs the emulator using SDL.
-func RunSDL(spec ch8.Spec, romPath string, color colorScheme) {
+func RunSDL(spec ch8.Spec, romPath string, color colorScheme, speed int) {
 	if color == Yellow {
 		bgR = 154
 		bgG = 102
@@ -79,7 +79,7 @@ func RunSDL(spec ch8.Spec, romPath string, color colorScheme) {
 			}
 		}
 
-		cpu.Tick()
+		cpu.Tick(speed)
 		if cpu.DisplayUpdated {
 			drawFromBuffer(cpu.DisplayBuffer, cpu.RenderingMode, renderer, bgR, bgG, bgB, fgR, fgG, fgB)
 			cpu.DisplayUpdated = false
