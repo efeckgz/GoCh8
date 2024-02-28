@@ -130,6 +130,8 @@ func (ch8 *CPU) ClearProgram() {
 	for i := 0x200; i < len(ch8.memory); i++ {
 		ch8.memory[i] = 0x0
 	}
+
+	ch8.programCounter = 0x200
 }
 
 // Tick emulates what the chip 8 does in 1/60 of a second.
